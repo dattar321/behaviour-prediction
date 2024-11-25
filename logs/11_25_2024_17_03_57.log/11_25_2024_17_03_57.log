@@ -1,0 +1,44 @@
+[ 2024-11-25 17:04:00,069 ] 22 root - INFO - Data Ingesion has been started
+[ 2024-11-25 17:04:00,069 ] 24 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 17:04:00,087 ] 26 root - INFO - Data Reading has been completed
+[ 2024-11-25 17:04:00,116 ] 30 root - INFO - Raw data has been stored
+[ 2024-11-25 17:04:00,120 ] 33 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 17:04:00,152 ] 38 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 17:04:00,153 ] 103 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 17:04:00,153 ] 107 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 17:04:00,566 ] 111 root - INFO - Feature store initialized successfully
+[ 2024-11-25 17:04:00,585 ] 176 root - INFO - Read train and test data completed
+[ 2024-11-25 17:04:00,585 ] 177 root - INFO - Obtaining preprocessing object
+[ 2024-11-25 17:04:00,602 ] 210 root - INFO - Applying preprocessing object on training and testing datasets.
+[ 2024-11-25 17:04:00,646 ] 216 root - INFO - Starting feature store operations
+[ 2024-11-25 17:04:00,661 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:00,664 ] 409 root - WARNING - Cannot use sqlite_vec for vector search
+[ 2024-11-25 17:04:00,666 ] 293 root - INFO - Applied entity and feature view for train
+[ 2024-11-25 17:04:00,667 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:00,670 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:00,670 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:02,577 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:03,116 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:04:03,124 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:03,139 ] 293 root - INFO - Applied entity and feature view for test
+[ 2024-11-25 17:04:03,139 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:03,142 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:03,142 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:04,957 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:04:05,540 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:04:05,540 ] 222 root - INFO - Pushed training & testing data to feature store
+[ 2024-11-25 17:04:05,708 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=4, connect=4, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x71642cc1f160>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline
+[ 2024-11-25 17:04:10,540 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=3, connect=3, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x71642cc1f370>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline
+[ 2024-11-25 17:04:19,038 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=2, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x71642cc1f520>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline
+[ 2024-11-25 17:04:36,056 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=1, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x71642cc1f6d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline
+[ 2024-11-25 17:05:08,960 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=0, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x71642cc1f880>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline

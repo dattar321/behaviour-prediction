@@ -1,0 +1,18 @@
+[ 2024-11-25 16:54:32,101 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:54:32.101215
+Error Type: NameError
+Error Message: name 'CustomData' is not defined
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/predict-example.py
+→ Function: predict_churn
+→ Line: 7
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/predict-example.py:7 in predict_churn
+    customer_data = CustomData(
+
+Local Variables:
+→ e = name 'CustomData' is not defined
+==============================

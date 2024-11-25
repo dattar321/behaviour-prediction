@@ -1,0 +1,163 @@
+[ 2024-11-25 16:59:02,960 ] 112 root - INFO - DataFrame created successfully
+[ 2024-11-25 16:59:02,960 ] 19 root - INFO - Loading preprocessor and model
+[ 2024-11-25 16:59:02,960 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960561
+Error Type: FileNotFoundError
+Error Message: [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py
+→ Function: load_object
+→ Line: 18
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:18 in load_object
+    with open(file_path, "rb") as file_objt:
+
+Local Variables:
+→ file_path = artifacts/data_transformation/preprocessor.pkl
+→ e = [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+==============================
+[ 2024-11-25 16:59:02,960 ] 32 root - ERROR - Error in prediction
+[ 2024-11-25 16:59:02,972 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960793
+Error Type: CustomException
+Error Message: 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960561
+Error Type: FileNotFoundError
+Error Message: [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py
+→ Function: load_object
+→ Line: 18
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:18 in load_object
+    with open(file_path, "rb") as file_objt:
+==============================
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py
+→ Function: predict
+→ Line: 20
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py:20 in predict
+    preprocessor = load_object(preprocessor_path)
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:21 in load_object
+    raise CustomException(e, sys)
+
+Local Variables:
+→ self = <src.pipelines.prediction_pipeline.PredictionPipeline object at 0x7bb373473790>
+→ features =    gender  SeniorCitizen Partner Dependents  tenure PhoneService  ... StreamingMovies        Contract PaperlessBilling     PaymentMethod MonthlyCharges TotalCharges
+0  Female              0     Yes         No      24          Yes  ...              No  Month-to-month              Yes  Electronic check           65.6       1574.4
+
+[1 rows x 18 columns]
+→ preprocessor_path = artifacts/data_transformation/preprocessor.pkl
+→ model_path = artifacts/model_trainer/model.pkl
+→ e = 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960561
+Error Type: FileNotFoundError
+Error Message: [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py
+→ Function: load_object
+→ Line: 18
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:18 in load_object
+    with open(file_path, "rb") as file_objt:
+==============================
+==============================
+[ 2024-11-25 16:59:02,983 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.972618
+Error Type: CustomException
+Error Message: 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960793
+Error Type: CustomException
+Error Message: 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960561
+Error Type: FileNotFoundError
+Error Message: [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py
+→ Function: load_object
+→ Line: 18
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:18 in load_object
+    with open(file_path, "rb") as file_objt:
+==============================
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py
+→ Function: predict
+→ Line: 20
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py:20 in predict
+    preprocessor = load_object(preprocessor_path)
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:21 in load_object
+    raise CustomException(e, sys)
+==============================
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/predict-example.py
+→ Function: predict_churn
+→ Line: 38
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/predict-example.py:38 in predict_churn
+    results = predict_pipeline.predict(df)
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py:33 in predict
+    raise CustomException(e, sys)
+
+Local Variables:
+→ customer_data = <src.pipelines.prediction_pipeline.CustomData object at 0x7bb373472950>
+→ df =    gender  SeniorCitizen Partner Dependents  tenure PhoneService  ... StreamingMovies        Contract PaperlessBilling     PaymentMethod MonthlyCharges TotalCharges
+0  Female              0     Yes         No      24          Yes  ...              No  Month-to-month              Yes  Electronic check           65.6       1574.4
+
+[1 rows x 18 columns]
+→ predict_pipeline = <src.pipelines.prediction_pipeline.PredictionPipeline object at 0x7bb373473790>
+→ e = 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960793
+Error Type: CustomException
+Error Message: 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T16:59:02.960561
+Error Type: FileNotFoundError
+Error Message: [Errno 2] No such file or directory: 'artifacts/data_transformation/preprocessor.pkl'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py
+→ Function: load_object
+→ Line: 18
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:18 in load_object
+    with open(file_path, "rb") as file_objt:
+==============================
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py
+→ Function: predict
+→ Line: 20
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/pipelines/prediction_pipeline.py:20 in predict
+    preprocessor = load_object(preprocessor_path)
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/utils.py:21 in load_object
+    raise CustomException(e, sys)
+==============================
+==============================

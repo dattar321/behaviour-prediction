@@ -1,0 +1,4 @@
+[ 2024-11-25 17:19:12,878 ] 112 root - INFO - DataFrame created successfully
+[ 2024-11-25 17:19:12,879 ] 19 root - INFO - Loading preprocessor and model
+[ 2024-11-25 17:19:13,289 ] 23 root - INFO - Preprocessing the input features
+[ 2024-11-25 17:19:13,294 ] 26 root - INFO - Making prediction

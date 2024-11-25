@@ -1,0 +1,50 @@
+[ 2024-11-25 17:18:44,451 ] 22 root - INFO - Data Ingesion has been started
+[ 2024-11-25 17:18:44,451 ] 24 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 17:18:44,468 ] 26 root - INFO - Data Reading has been completed
+[ 2024-11-25 17:18:44,495 ] 30 root - INFO - Raw data has been stored
+[ 2024-11-25 17:18:44,498 ] 33 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 17:18:44,525 ] 38 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 17:18:44,526 ] 103 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 17:18:44,526 ] 107 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 17:18:44,914 ] 111 root - INFO - Feature store initialized successfully
+[ 2024-11-25 17:18:44,933 ] 176 root - INFO - Read train and test data completed
+[ 2024-11-25 17:18:44,933 ] 177 root - INFO - Obtaining preprocessing object
+[ 2024-11-25 17:18:44,950 ] 210 root - INFO - Applying preprocessing object on training and testing datasets.
+[ 2024-11-25 17:18:44,991 ] 216 root - INFO - Starting feature store operations
+[ 2024-11-25 17:18:45,007 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:45,010 ] 409 root - WARNING - Cannot use sqlite_vec for vector search
+[ 2024-11-25 17:18:45,012 ] 293 root - INFO - Applied entity and feature view for train
+[ 2024-11-25 17:18:45,012 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:45,015 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:45,015 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:46,894 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:47,434 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:18:47,441 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:47,444 ] 293 root - INFO - Applied entity and feature view for test
+[ 2024-11-25 17:18:47,444 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:47,447 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:47,447 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:49,175 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:49,745 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:18:49,745 ] 222 root - INFO - Pushed training & testing data to feature store
+[ 2024-11-25 17:18:49,917 ] 130 root - INFO - Starting model training pipeline
+[ 2024-11-25 17:18:49,918 ] 203 root - INFO - Training LogisticRegression
+[ 2024-11-25 17:18:49,967 ] 59 root - INFO - Started Training LogisticRegression
+[ 2024-11-25 17:18:53,219 ] 80 root - INFO - Best Parameters for LogisticRegression: {'best_C': 1, 'best_penalty': 'l2', 'best_solver': 'saga'}
+[ 2024-11-25 17:18:55,421 ] 121 root - INFO - Completed Training LogisticRegression
+[ 2024-11-25 17:18:55,435 ] 203 root - INFO - Training KNN
+[ 2024-11-25 17:18:55,448 ] 59 root - INFO - Started Training KNN
+[ 2024-11-25 17:18:56,905 ] 80 root - INFO - Best Parameters for KNN: {'best_metric': 'manhattan', 'best_n_neighbors': 9, 'best_weights': 'uniform'}
+[ 2024-11-25 17:18:59,386 ] 121 root - INFO - Completed Training KNN
+[ 2024-11-25 17:18:59,399 ] 203 root - INFO - Training RandomForest
+[ 2024-11-25 17:18:59,411 ] 59 root - INFO - Started Training RandomForest

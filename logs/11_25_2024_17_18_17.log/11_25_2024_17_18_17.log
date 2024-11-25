@@ -1,0 +1,41 @@
+[ 2024-11-25 17:18:19,785 ] 22 root - INFO - Data Ingesion has been started
+[ 2024-11-25 17:18:19,785 ] 24 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 17:18:19,802 ] 26 root - INFO - Data Reading has been completed
+[ 2024-11-25 17:18:19,829 ] 30 root - INFO - Raw data has been stored
+[ 2024-11-25 17:18:19,831 ] 33 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 17:18:19,858 ] 38 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 17:18:19,859 ] 103 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 17:18:19,859 ] 107 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 17:18:20,232 ] 111 root - INFO - Feature store initialized successfully
+[ 2024-11-25 17:18:20,250 ] 176 root - INFO - Read train and test data completed
+[ 2024-11-25 17:18:20,250 ] 177 root - INFO - Obtaining preprocessing object
+[ 2024-11-25 17:18:20,265 ] 210 root - INFO - Applying preprocessing object on training and testing datasets.
+[ 2024-11-25 17:18:20,305 ] 216 root - INFO - Starting feature store operations
+[ 2024-11-25 17:18:20,320 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:20,323 ] 409 root - WARNING - Cannot use sqlite_vec for vector search
+[ 2024-11-25 17:18:20,325 ] 293 root - INFO - Applied entity and feature view for train
+[ 2024-11-25 17:18:20,325 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:20,328 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:20,328 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:22,186 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:22,712 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:18:22,722 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:22,726 ] 293 root - INFO - Applied entity and feature view for test
+[ 2024-11-25 17:18:22,726 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:22,729 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:22,729 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:24,491 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 17:18:25,079 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 17:18:25,079 ] 222 root - INFO - Pushed training & testing data to feature store
+[ 2024-11-25 17:18:25,255 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=4, connect=4, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x70fd41ca7460>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline
+[ 2024-11-25 17:18:29,893 ] 870 urllib3.connectionpool - WARNING - Retrying (Retry(total=3, connect=3, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x70fd41ca7670>: Failed to establish a new connection: [Errno 111] Connection refused')': /api/2.0/mlflow/experiments/get-by-name?experiment_name=Churn_Prediction_Pipeline

@@ -72,7 +72,7 @@ class FeatureSchema:
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path = os.path.join('artifacts', 'preprocessor.pkl')
+    preprocessor_obj_file_path = os.path.join('artifacts/data_transformation', 'preprocessor.pkl')
     feature_store_repo_path = "feature_repo"
 
 class DataTransformation:
