@@ -1,0 +1,175 @@
+[ 2024-11-25 15:26:26,628 ] 21 root - INFO - Data Ingesion has been started
+[ 2024-11-25 15:26:26,628 ] 23 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 15:26:26,646 ] 25 root - INFO - Data Reading has been completed
+[ 2024-11-25 15:26:26,673 ] 29 root - INFO - Raw data has been stored
+[ 2024-11-25 15:26:26,676 ] 32 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 15:26:26,703 ] 37 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 15:26:26,704 ] 102 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 15:26:26,704 ] 106 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 15:26:27,047 ] 230 feast.infra.registry.registry - INFO - Registry file not found. Creating new registry.
+[ 2024-11-25 15:26:27,050 ] 110 root - INFO - Feature store initialized successfully
+[ 2024-11-25 15:26:27,066 ] 175 root - INFO - Read train and test data completed
+[ 2024-11-25 15:26:27,066 ] 176 root - INFO - Obtaining preprocessing object
+[ 2024-11-25 15:26:27,083 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T15:26:27.081594
+Error Type: TypeError
+Error Message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py
+→ Function: get_data_transformer_object
+→ Line: 135
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py:135 in get_data_transformer_object
+    ('one_hot', OneHotEncoder(drop='first', sparse=False)),
+
+Local Variables:
+→ self = <src.components.data_transformation.DataTransformation object at 0x7341d7b67ac0>
+→ numeric_pipeline = Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),
+                ('scaler', StandardScaler())])
+→ e = OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+==============================
+[ 2024-11-25 15:26:27,140 ] 97 root - ERROR - 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T15:26:27.083619
+Error Type: CustomException
+Error Message: 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T15:26:27.081594
+Error Type: TypeError
+Error Message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py
+→ Function: get_data_transformer_object
+→ Line: 135
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py:135 in get_data_transformer_object
+    ('one_hot', OneHotEncoder(drop='first', sparse=False)),
+==============================
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py
+→ Function: initiate_data_transformation
+→ Line: 207
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py:207 in initiate_data_transformation
+    preprocessing_obj = self.get_data_transformer_object()
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py:149 in get_data_transformer_object
+    raise CustomException(e, sys)
+
+Local Variables:
+→ self = <src.components.data_transformation.DataTransformation object at 0x7341d7b67ac0>
+→ train_path = artifacts/data_ingestion/train.csv
+→ test_path = artifacts/data_ingestion/test.csv
+→ train_df =       gender  SeniorCitizen Partner Dependents  tenure PhoneService     MultipleLines  ...      StreamingMovies        Contract PaperlessBilling              PaymentMethod MonthlyCharges TotalCharges Churn
+0     Female              0      No        Yes      21          Yes                No  ...                  Yes        One year               No               Mailed check          64.85      1336.80     0
+1     Female              0      No         No      54          Yes               Yes  ...                  Yes        Two year              Yes  Bank transfer (automatic)          97.20      5129.45     0
+2       Male              0     Yes         No       1           No  No phone service  ...                   No  Month-to-month              Yes           Electronic check          23.45        23.45     1
+3       Male              0      No         No       4          Yes                No  ...                   No  Month-to-month              Yes           Electronic check          70.20       237.95     1
+4       Male              0      No        Yes       0          Yes               Yes  ...                   No        Two year              Yes  Bank transfer (automatic)          61.90          NaN     0
+...      ...            ...     ...        ...     ...          ...               ...  ...                  ...             ...              ...                        ...            ...          ...   ...
+5629    Male              0     Yes         No       1          Yes                No  ...                  Yes  Month-to-month              Yes           Electronic check          95.00        95.00     1
+5630  Female              0     Yes        Yes      23          Yes               Yes  ...                  Yes        Two year              Yes    Credit card (automatic)          91.10      2198.30     0
+5631    Male              0     Yes        Yes      12          Yes                No  ...  No internet service  Month-to-month              Yes           Electronic check          21.15       306.05     0
+5632    Male              1      No         No      12          Yes               Yes  ...                  Yes  Month-to-month              Yes           Electronic check          99.45      1200.15     1
+5633    Male              0      No         No      26          Yes                No  ...  No internet service        One year               No    Credit card (automatic)          19.80       457.30     0
+
+[5634 rows x 20 columns]
+→ test_df =       gender  SeniorCitizen Partner Dependents  tenure PhoneService     MultipleLines  ...      StreamingMovies        Contract PaperlessBilling              PaymentMethod MonthlyCharges TotalCharges Churn
+0     Female              0     Yes         No       1           No  No phone service  ...                   No  Month-to-month              Yes           Electronic check          24.80        24.80     1
+1       Male              0      No         No      41          Yes               Yes  ...  No internet service  Month-to-month              Yes  Bank transfer (automatic)          25.25       996.45     0
+2     Female              0     Yes        Yes      52          Yes                No  ...  No internet service        Two year               No               Mailed check          19.35      1031.70     0
+3     Female              0      No         No       1          Yes                No  ...                   No  Month-to-month               No           Electronic check          76.35        76.35     1
+4       Male              0      No         No      67          Yes                No  ...                   No        Two year               No  Bank transfer (automatic)          50.55      3260.10     0
+...      ...            ...     ...        ...     ...          ...               ...  ...                  ...             ...              ...                        ...            ...          ...   ...
+1404  Female              0     Yes         No      64          Yes                No  ...                  Yes        Two year              Yes               Mailed check          68.30      4378.80     0
+1405    Male              0     Yes        Yes      51          Yes               Yes  ...                  Yes        One year               No    Credit card (automatic)         110.05      5686.40     0
+1406    Male              0     Yes        Yes      17          Yes                No  ...  No internet service        One year               No  Bank transfer (automatic)          19.90       329.75     0
+1407  Female              0     Yes        Yes      69           No  No phone service  ...                  Yes        Two year              Yes    Credit card (automatic)          43.95      2960.10     0
+1408    Male              0      No        Yes       1           No  No phone service  ...                   No  Month-to-month              Yes               Mailed check          31.35        31.35     1
+
+[1409 rows x 20 columns]
+→ le = LabelEncoder()
+→ input_feature_train_df =       gender  SeniorCitizen Partner Dependents  tenure PhoneService  ...      StreamingMovies        Contract PaperlessBilling              PaymentMethod MonthlyCharges TotalCharges
+0     Female              0      No        Yes      21          Yes  ...                  Yes        One year               No               Mailed check          64.85      1336.80
+1     Female              0      No         No      54          Yes  ...                  Yes        Two year              Yes  Bank transfer (automatic)          97.20      5129.45
+2       Male              0     Yes         No       1           No  ...                   No  Month-to-month              Yes           Electronic check          23.45        23.45
+3       Male              0      No         No       4          Yes  ...                   No  Month-to-month              Yes           Electronic check          70.20       237.95
+4       Male              0      No        Yes       0          Yes  ...                   No        Two year              Yes  Bank transfer (automatic)          61.90          NaN
+...      ...            ...     ...        ...     ...          ...  ...                  ...             ...              ...                        ...            ...          ...
+5629    Male              0     Yes         No       1          Yes  ...                  Yes  Month-to-month              Yes           Electronic check          95.00        95.00
+5630  Female              0     Yes        Yes      23          Yes  ...                  Yes        Two year              Yes    Credit card (automatic)          91.10      2198.30
+5631    Male              0     Yes        Yes      12          Yes  ...  No internet service  Month-to-month              Yes           Electronic check          21.15       306.05
+5632    Male              1      No         No      12          Yes  ...                  Yes  Month-to-month              Yes           Electronic check          99.45      1200.15
+5633    Male              0      No         No      26          Yes  ...  No internet service        One year               No    Credit card (automatic)          19.80       457.30
+
+[5634 rows x 19 columns]
+→ target_feature_train_df = 0       0
+1       0
+2       1
+3       1
+4       0
+       ..
+5629    1
+5630    0
+5631    0
+5632    1
+5633    0
+Name: Churn, Length: 5634, dtype: int64
+→ input_feature_test_df =       gender  SeniorCitizen Partner Dependents  tenure PhoneService  ...      StreamingMovies        Contract PaperlessBilling              PaymentMethod MonthlyCharges TotalCharges
+0     Female              0     Yes         No       1           No  ...                   No  Month-to-month              Yes           Electronic check          24.80        24.80
+1       Male              0      No         No      41          Yes  ...  No internet service  Month-to-month              Yes  Bank transfer (automatic)          25.25       996.45
+2     Female              0     Yes        Yes      52          Yes  ...  No internet service        Two year               No               Mailed check          19.35      1031.70
+3     Female              0      No         No       1          Yes  ...                   No  Month-to-month               No           Electronic check          76.35        76.35
+4       Male              0      No         No      67          Yes  ...                   No        Two year               No  Bank transfer (automatic)          50.55      3260.10
+...      ...            ...     ...        ...     ...          ...  ...                  ...             ...              ...                        ...            ...          ...
+1404  Female              0     Yes         No      64          Yes  ...                  Yes        Two year              Yes               Mailed check          68.30      4378.80
+1405    Male              0     Yes        Yes      51          Yes  ...                  Yes        One year               No    Credit card (automatic)         110.05      5686.40
+1406    Male              0     Yes        Yes      17          Yes  ...  No internet service        One year               No  Bank transfer (automatic)          19.90       329.75
+1407  Female              0     Yes        Yes      69           No  ...                  Yes        Two year              Yes    Credit card (automatic)          43.95      2960.10
+1408    Male              0      No        Yes       1           No  ...                   No  Month-to-month              Yes               Mailed check          31.35        31.35
+
+[1409 rows x 19 columns]
+→ target_feature_test_df = 0       1
+1       0
+2       0
+3       1
+4       0
+       ..
+1404    0
+1405    0
+1406    0
+1407    0
+1408    1
+Name: Churn, Length: 1409, dtype: int64
+→ e = 
+=== ML Pipeline Error Report ===
+Timestamp: 2024-11-25T15:26:27.081594
+Error Type: TypeError
+Error Message: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+
+Failure Location:
+→ File: /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py
+→ Function: get_data_transformer_object
+→ Line: 135
+
+Stack Trace:
+  • /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/src/components/data_transformation.py:135 in get_data_transformer_object
+    ('one_hot', OneHotEncoder(drop='first', sparse=False)),
+==============================
+==============================

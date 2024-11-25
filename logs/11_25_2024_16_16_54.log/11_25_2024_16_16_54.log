@@ -1,0 +1,19 @@
+[ 2024-11-25 16:16:57,033 ] 22 root - INFO - Data Ingesion has been started
+[ 2024-11-25 16:16:57,033 ] 24 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 16:16:57,057 ] 26 root - INFO - Data Reading has been completed
+[ 2024-11-25 16:16:57,089 ] 30 root - INFO - Raw data has been stored
+[ 2024-11-25 16:16:57,092 ] 33 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 16:16:57,121 ] 38 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 16:16:57,121 ] 103 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 16:16:57,121 ] 107 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 16:16:57,502 ] 111 root - INFO - Feature store initialized successfully

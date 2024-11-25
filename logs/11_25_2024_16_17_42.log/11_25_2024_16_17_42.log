@@ -1,0 +1,69 @@
+[ 2024-11-25 16:17:45,688 ] 22 root - INFO - Data Ingesion has been started
+[ 2024-11-25 16:17:45,688 ] 24 root - INFO - Data reading using Pandas from local file system
+[ 2024-11-25 16:17:45,708 ] 26 root - INFO - Data Reading has been completed
+[ 2024-11-25 16:17:45,739 ] 30 root - INFO - Raw data has been stored
+[ 2024-11-25 16:17:45,742 ] 33 root - INFO - Raw data has been splitted into Train and Test set
+[ 2024-11-25 16:17:45,799 ] 38 root - INFO - Data Ingestion has been completed!
+[ 2024-11-25 16:17:45,800 ] 103 root - INFO - Created feature store configuration at /home/bs01224/Desktop/study/mlops/module 3/task/behaviour-prediction/feature_repo/feature_store.yaml
+[ 2024-11-25 16:17:45,800 ] 107 root - INFO - Configuration file content:
+
+project: behaviour_prediction
+provider: local
+registry: data/registry.db
+online_store:
+    type: sqlite
+offline_store:
+    type: file
+entity_key_serialization_version: 2
+
+[ 2024-11-25 16:17:46,200 ] 111 root - INFO - Feature store initialized successfully
+[ 2024-11-25 16:17:46,218 ] 176 root - INFO - Read train and test data completed
+[ 2024-11-25 16:17:46,219 ] 177 root - INFO - Obtaining preprocessing object
+[ 2024-11-25 16:17:46,234 ] 210 root - INFO - Applying preprocessing object on training and testing datasets.
+[ 2024-11-25 16:17:46,277 ] 216 root - INFO - Starting feature store operations
+[ 2024-11-25 16:17:46,294 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:46,297 ] 409 root - WARNING - Cannot use sqlite_vec for vector search
+[ 2024-11-25 16:17:46,299 ] 293 root - INFO - Applied entity and feature view for train
+[ 2024-11-25 16:17:46,299 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:46,302 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:46,302 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:48,223 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:48,771 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 16:17:48,779 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:48,782 ] 293 root - INFO - Applied entity and feature view for test
+[ 2024-11-25 16:17:48,782 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:48,786 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:48,786 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:50,547 ] 920 feast.infra.registry.registry - INFO - Registry cache expired, so refreshing
+[ 2024-11-25 16:17:51,141 ] 300 root - INFO - Materialized features successfully
+[ 2024-11-25 16:17:51,141 ] 222 root - INFO - Pushed training & testing data to feature store
+[ 2024-11-25 16:17:51,361 ] 130 root - INFO - Starting model training pipeline
+[ 2024-11-25 16:17:51,361 ] 203 root - INFO - Training LogisticRegression
+[ 2024-11-25 16:17:51,412 ] 59 root - INFO - Started Training LogisticRegression
+[ 2024-11-25 16:17:54,844 ] 80 root - INFO - Best Parameters for LogisticRegression: {'best_C': 1, 'best_penalty': 'l2', 'best_solver': 'saga'}
+[ 2024-11-25 16:17:57,119 ] 121 root - INFO - Completed Training LogisticRegression
+[ 2024-11-25 16:17:57,131 ] 203 root - INFO - Training KNN
+[ 2024-11-25 16:17:57,142 ] 59 root - INFO - Started Training KNN
+[ 2024-11-25 16:17:58,547 ] 80 root - INFO - Best Parameters for KNN: {'best_metric': 'manhattan', 'best_n_neighbors': 9, 'best_weights': 'uniform'}
+[ 2024-11-25 16:18:01,088 ] 121 root - INFO - Completed Training KNN
+[ 2024-11-25 16:18:01,102 ] 203 root - INFO - Training RandomForest
+[ 2024-11-25 16:18:01,116 ] 59 root - INFO - Started Training RandomForest
+[ 2024-11-25 16:20:27,251 ] 80 root - INFO - Best Parameters for RandomForest: {'best_max_depth': 10, 'best_max_features': 'sqrt', 'best_max_leaf_nodes': None, 'best_n_estimators': 500}
+[ 2024-11-25 16:20:30,446 ] 121 root - INFO - Completed Training RandomForest
+[ 2024-11-25 16:20:30,461 ] 203 root - INFO - Training SVM
+[ 2024-11-25 16:20:30,476 ] 59 root - INFO - Started Training SVM
+[ 2024-11-25 16:20:39,024 ] 80 root - INFO - Best Parameters for SVM: {'best_C': 1, 'best_gamma': 'scale', 'best_kernel': 'rbf'}
+[ 2024-11-25 16:20:41,628 ] 121 root - INFO - Completed Training SVM
+[ 2024-11-25 16:20:41,642 ] 203 root - INFO - Training XGBoost
+[ 2024-11-25 16:20:41,655 ] 59 root - INFO - Started Training XGBoost
+[ 2024-11-25 16:20:45,200 ] 80 root - INFO - Best Parameters for XGBoost: {'best_learning_rate': 0.01, 'best_max_depth': 5, 'best_n_estimators': 300}
+[ 2024-11-25 16:20:47,244 ] 121 root - INFO - Completed Training XGBoost
+[ 2024-11-25 16:20:47,261 ] 203 root - INFO - Training AdaBoost
+[ 2024-11-25 16:20:47,276 ] 59 root - INFO - Started Training AdaBoost
+[ 2024-11-25 16:20:53,824 ] 80 root - INFO - Best Parameters for AdaBoost: {'best_learning_rate': 0.1, 'best_n_estimators': 200}
+[ 2024-11-25 16:20:56,025 ] 121 root - INFO - Completed Training AdaBoost
+[ 2024-11-25 16:20:56,037 ] 203 root - INFO - Training GradientBoosting
+[ 2024-11-25 16:20:56,049 ] 59 root - INFO - Started Training GradientBoosting
+[ 2024-11-25 16:21:11,180 ] 80 root - INFO - Best Parameters for GradientBoosting: {'best_learning_rate': 0.1, 'best_max_depth': 3, 'best_n_estimators': 100}
+[ 2024-11-25 16:21:13,229 ] 121 root - INFO - Completed Training GradientBoosting
+[ 2024-11-25 16:21:13,242 ] 221 root - INFO - Best model: LogisticRegression with accuracy: 0.8197303051809794

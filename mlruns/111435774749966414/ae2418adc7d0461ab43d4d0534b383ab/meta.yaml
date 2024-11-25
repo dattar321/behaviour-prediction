@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/111435774749966414/ae2418adc7d0461ab43d4d0534b383ab/artifacts
+end_time: 1732530073230
+entry_point_name: ''
+experiment_id: '111435774749966414'
+lifecycle_stage: active
+run_id: ae2418adc7d0461ab43d4d0534b383ab
+run_name: GradientBoosting_training_run_20241125_161751
+run_uuid: ae2418adc7d0461ab43d4d0534b383ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732530056038
+status: 3
+tags: []
+user_id: bs01224
