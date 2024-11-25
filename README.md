@@ -29,6 +29,7 @@ To align strategic business goals with churn reduction efforts, ultimately drivi
 # Dataset Details:
 > Download the dataset from Kaggle https://www.kaggle.com/code/bandiatindra/telecom-churn-prediction 
 
+
 Let's visualize the data structure and features:
 
 ```mermaid
@@ -81,6 +82,8 @@ classDiagram
 2. **Subscription_Features:** Includes details about the customer's subscription plan (Contract, billing methods, and tenure).
 3. **Billing_Features:** Focuses on financial details like monthly and total charges.
 4. **Service_Features:** Describes the various services and options available to the customer.
+
+For better understanding, You can read the `EDA.ipynb` notebook for detailed statistical analysis.
 
 # **Setup Instructions**
 
@@ -161,4 +164,6 @@ For testing the trained model, use the prediction pipeline:
 Upon running, the script will provide prediction results based on the model.
 
 ---
+
+And for codebase details read ML_Workflow.md in this repo
 
