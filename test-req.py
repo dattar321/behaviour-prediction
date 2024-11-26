@@ -1,7 +1,7 @@
 import requests
 
 # Define the URL of the API
-url = "http://127.0.0.1:5000/predict"
+url = "http://127.0.0.1:8000/predict"
 
 # Define the payload (example customer data)
 payload = {

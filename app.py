@@ -1,57 +1,70 @@
-from flask import Flask, request, jsonify
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from src.pipelines.prediction_pipeline import PredictionPipeline, CustomData
 
-app = Flask(__name__)
+# Initialize the FastAPI app
+app = FastAPI()
 
-@app.route("/predict", methods=["POST"])
-def predict():
+# Define the request schema
+class CustomerData(BaseModel):
+    gender: str
+    SeniorCitizen: int
+    Partner: str
+    Dependents: str
+    tenure: int
+    PhoneService: str
+    MultipleLines: str
+    InternetService: str
+    OnlineSecurity: str
+    DeviceProtection: str
+    TechSupport: str
+    StreamingTV: str
+    StreamingMovies: str
+    Contract: str
+    PaperlessBilling: str
+    PaymentMethod: str
+    MonthlyCharges: float
+    TotalCharges: float
+
+@app.post("/predict")
+async def predict(data: CustomerData):
     try:
-        # Get JSON data from the request
-        json_data = request.get_json()
-
-        # Create an instance of CustomData using JSON data
+        # Convert request data into CustomData
         customer_data = CustomData(
-            gender=json_data.get("gender"),
-            SeniorCitizen=int(json_data.get("SeniorCitizen")),
-            Partner=json_data.get("Partner"),
-            Dependents=json_data.get("Dependents"),
-            tenure=int(json_data.get("tenure")),
-            PhoneService=json_data.get("PhoneService"),
-            MultipleLines=json_data.get("MultipleLines"),
-            InternetService=json_data.get("InternetService"),
-            OnlineSecurity=json_data.get("OnlineSecurity"),
-            DeviceProtection=json_data.get("DeviceProtection"),
-            TechSupport=json_data.get("TechSupport"),
-            StreamingTV=json_data.get("StreamingTV"),
-            StreamingMovies=json_data.get("StreamingMovies"),
-            Contract=json_data.get("Contract"),
-            PaperlessBilling=json_data.get("PaperlessBilling"),
-            PaymentMethod=json_data.get("PaymentMethod"),
-            MonthlyCharges=float(json_data.get("MonthlyCharges")),
-            TotalCharges=float(json_data.get("TotalCharges"))
+            gender=data.gender,
+            SeniorCitizen=data.SeniorCitizen,
+            Partner=data.Partner,
+            Dependents=data.Dependents,
+            tenure=data.tenure,
+            PhoneService=data.PhoneService,
+            MultipleLines=data.MultipleLines,
+            InternetService=data.InternetService,
+            OnlineSecurity=data.OnlineSecurity,
+            DeviceProtection=data.DeviceProtection,
+            TechSupport=data.TechSupport,
+            StreamingTV=data.StreamingTV,
+            StreamingMovies=data.StreamingMovies,
+            Contract=data.Contract,
+            PaperlessBilling=data.PaperlessBilling,
+            PaymentMethod=data.PaymentMethod,
+            MonthlyCharges=data.MonthlyCharges,
+            TotalCharges=data.TotalCharges
         )
 
         # Convert to DataFrame
         customer_df = customer_data.get_data_as_dataframe()
 
-        # Initialize the prediction pipeline
+        # Initialize prediction pipeline
         predict_pipeline = PredictionPipeline()
 
-        # Make the prediction
+        # Make prediction
         prediction = predict_pipeline.predict(customer_df)
 
-        # Return the prediction result
-        return jsonify({
+        # Return response
+        return {
             "status": "success",
             "prediction": int(prediction[0]),
             "churn": "Yes" if prediction[0] == 1 else "No"
-        })
-
+        }
     except Exception as e:
-        return jsonify({
-            "status": "error",
-            "message": str(e)
-        }), 400
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+        raise HTTPException(status_code=400, detail=str(e))
