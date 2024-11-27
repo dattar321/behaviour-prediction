@@ -30,7 +30,7 @@ class CustomerData(BaseModel):
 async def predict(data: CustomerData):
     try:
         # Convert request data into CustomData
-        customer_data = CustomData(
+        customer_data =   CustomData(
             gender=data.gender,
             SeniorCitizen=data.SeniorCitizen,
             Partner=data.Partner,
